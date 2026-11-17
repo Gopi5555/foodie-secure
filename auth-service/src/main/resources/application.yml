@@ -1,0 +1,14 @@
+server.port: 8083
+server.error.include-message: always
+spring.datasource.url: jdbc:h2:file:./data/authdb
+spring.jpa.hibernate.ddl-auto: update
+jwt.secret: ${JWT_SECRET:change-this-secret-key-change-this-secret-key-32chars}
+app.admin.email: ${ADMIN_EMAIL:admin@foodie.com}
+# Leave MAIL_HOST empty => DEV MODE: OTPs are printed in this service's console instead of emailed.
+spring.mail:
+  host: ${MAIL_HOST:}
+  port: ${MAIL_PORT:587}
+  username: ${MAIL_USERNAME:}
+  password: ${MAIL_PASSWORD:}
+  properties.mail.smtp.auth: true
+  properties.mail.smtp.starttls.enable: true

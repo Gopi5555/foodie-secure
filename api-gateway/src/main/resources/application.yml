@@ -1,0 +1,12 @@
+server.port: 8080
+jwt.secret: ${JWT_SECRET:change-this-secret-key-change-this-secret-key-32chars}
+spring.cloud.gateway.routes:
+  - id: auth
+    uri: ${AUTH_URL:http://localhost:8083}
+    predicates: [ Path=/api/auth/**,/api/profile/** ]
+  - id: restaurants
+    uri: ${RESTAURANT_URL:http://localhost:8081}
+    predicates: [ Path=/api/restaurants/** ]
+  - id: orders
+    uri: ${ORDER_URL:http://localhost:8082}
+    predicates: [ Path=/api/orders/** ]
